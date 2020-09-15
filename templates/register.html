@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="rusername" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="rpassword" placeholder="Password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="rretype" placeholder="Retype Password" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+    {% if exist == 1 %}
+        <script>
+            alert("username not available");
+        </script>
+    {% endif %}
+    {% if exist == 2 %}
+
+        <script>
+        //personal touch
+            alert("your password should be at least 4 characters");
+        </script>
+    {% endif %}
+    {% if exist == 3 %}
+        <script>
+            alert("your password should contain at-least one digit or special character");
+        </script>
+    {% endif %}
+    {% if exist == 4 %}
+        <script>
+            alert("your password should not be same as your username");
+        </script>
+    {% endif %}
+{% endblock %}
